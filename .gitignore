@@ -103,5 +103,9 @@ venv.bak/
 # mypy
 .mypy_cache/
 
+# Idea
+.idea/*
+.idea/
+
 # Scrape Sink
 sink/*
