@@ -1,8 +1,3 @@
-__author__='Pruthvi Kumar'
-# 30 June 2019.
-# pruthvikumar.123@gmail.com
-# Scrape contents of a given webpage (body) and extract into a flat file (.txt / .xml )
-
 from bs4 import BeautifulSoup
 from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
@@ -10,6 +5,12 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 import os
+
+__author__='Pruthvi Kumar'
+# 30 June 2019.
+# pruthvikumar.123@gmail.com
+# Scrape contents of a given webpage (body) and extract into a flat file (.txt / .xml )
+
 
 class LoadAndExtract:
 
