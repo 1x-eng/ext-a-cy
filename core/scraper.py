@@ -7,11 +7,12 @@ __author__='Pruthvi Kumar'
 # Scrape contents of a loaded webpage into a text file and store into a text file within sink.
 
 
-class Scraper:
+class ScrapePage:
 
-    def __init__(self, file_name):
-        super(Scraper, self).__init__()
-        self.file_name = file_name
+    def __init__(self, page_source, sink_file_name):
+        super(ScrapePage, self).__init__()
+        self.page_source = page_source
+        self.sink_file_name = sink_file_name
 
     @staticmethod
     def __scrape_body(page_source):
@@ -26,9 +27,9 @@ class Scraper:
             os.makedirs('./../sink', exist_ok=True)
 
             # Extract page contents using Soup.
-            with open("./../sink/{}.txt".format(self.file_name), "a") as f:
-                print(self.__scrape_body(self.driver.page_source), file=f)
+            with open("./../sink/{}.txt".format(self.sink_file_name), "a") as f:
+                print(self.__scrape_body(self.page_source), file=f)
 
         except Exception as e:
-            print('Failed to scrape contents into {} file. Stack trace to follow.'.format(self.file_name))
+            print('Failed to scrape contents into {} file. Stack trace to follow.'.format(self.sink_file_name))
             print(str(e))

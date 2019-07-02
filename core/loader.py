@@ -7,7 +7,7 @@ from selenium.webdriver.common.by import By
 __author__='Pruthvi Kumar'
 # 30 June 2019.
 # pruthvikumar.123@gmail.com
-# Load webpage associated with given URL and await given dom element until specified time.
+# Load web-page associated with given URL and await given dom element until specified time.
 
 
 class LoadPage:
@@ -28,6 +28,8 @@ class LoadPage:
             WebDriverWait(self.driver, self.wait_time).until(EC.presence_of_element_located((By.ID, self.dom_id)))
 
             # If you wanted to do any activity like login etc., conduct that here.
+
+            return self.driver.page_source
 
         except TimeoutError:
             print("Failed to load page / Failed to wait until {} element was loaded @ "
