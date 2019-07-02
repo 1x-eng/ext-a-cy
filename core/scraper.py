@@ -9,7 +9,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
-
+import os
 
 class LoadAndExtract:
 
@@ -35,6 +35,9 @@ class LoadAndExtract:
             # Wait as long as required, or maximum of 5 sec for element to appear
             # If successful, retrieves the element
             WebDriverWait(self.driver, self.wait_time).until(EC.presence_of_element_located((By.ID, self.dom_id)))
+
+            # create a sink if not already existing
+            os.makedirs('./../sink', exist_ok=True)
 
             # Extract page contents using Soup.
             with open("./../sink/{}.txt".format(self.file_name), "a") as f:
