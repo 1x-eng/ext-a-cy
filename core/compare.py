@@ -26,6 +26,7 @@ class ComparePages:
                     )
                     for line in diff:
                         sys.stdout.write(line)
+
         except Exception as e:
             print('Unable to complete comparing {} and {}. Stack trace to follow.'.format(self.file1, self.file2))
             print(str(e))

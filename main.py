@@ -11,8 +11,11 @@ __author__='Pruthvi Kumar'
 page = LoadPage('https://www.apricity.co.in', 'about')
 page_source = page.extractor()
 
+
 # Step2 Scrape page source into sink
-ScrapePage()
+scraper = ScrapePage(page_source, 'apricity')
+scraper.extractor()
 
 # Step3 Compare and report differences between two pages.
-ComparePages('./sink/apricity.txt', './sink/apricity.txt')
+comparator = ComparePages('./sink/apricity.txt', './sink/ap2.txt')
+comparator.compare()

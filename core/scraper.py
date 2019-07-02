@@ -16,7 +16,7 @@ class ScrapePage:
 
     @staticmethod
     def __scrape_body(page_source):
-        soup = BeautifulSoup(page_source)
+        soup = BeautifulSoup(page_source, features='html.parser')
         body = soup.find('body')
         the_contents_of_body_without_body_tags = body.findChildren()
         return the_contents_of_body_without_body_tags
@@ -24,10 +24,10 @@ class ScrapePage:
     def extractor(self):
         try:
             # create a sink if not already existing
-            os.makedirs('./../sink', exist_ok=True)
+            os.makedirs('{}/../sink'.format(os.path.dirname(__file__)), exist_ok=True)
 
             # Extract page contents using Soup.
-            with open("./../sink/{}.txt".format(self.sink_file_name), "a") as f:
+            with open('{}/../sink/{}.txt'.format(os.path.dirname(__file__), self.sink_file_name), "a") as f:
                 print(self.__scrape_body(self.page_source), file=f)
 
         except Exception as e:
