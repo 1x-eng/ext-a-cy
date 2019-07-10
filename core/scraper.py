@@ -27,6 +27,7 @@ class ScrapePage:
             os.makedirs('{}/../sink'.format(os.path.dirname(__file__)), exist_ok=True)
 
             # Extract page contents using Soup.
+            # .txt to visualize differenes.
             with open('{}/../sink/{}.txt'.format(os.path.dirname(__file__), self.sink_file_name), "a") as f:
                 print(self.__scrape_body(self.page_source), file=f)
 
